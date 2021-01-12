@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="timer">
+        <span id="hours" class="timer">00</span>:
+        <span id="minutes" class="timer">00</span>:
+        <span id="seconds" class="timer">00</span>
+        <button id="start-timer">Start</button>
+        <button id="stop-timer">Stop</button>
+    </div>
+    <script src="timer.js"></script>
+    <script>
+        window.onload = function() {
+            timer();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <form id="registerForm">
+            <fieldset id="userInfo">
+                <legend>User inforomation</legend>
+                <div class="pairContainer">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username">
+                </div>
+                <div class="pairContainer">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email">
+                </div>
+                <div class="pairContainer">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password">
+                </div>
+                <div class="pairContainer">
+                    <label for="comfirm-password">Comfirm-password:</label>
+                    <input type="password" id="comfirm-password">
+                </div>
+                <div class="pairContainer">
+                    <label for="campany">Is Company</label>
+                    <input id="company" type="checkbox">
+                </div>
+            </fieldset>
+            <fieldset id="companyInfo" style="display:none;">
+                <legend>Company Information</legend>
+                <div class="pairContainer">
+                    <label for="companyNumber">Company Number</label>
+                    <input type="number" id="companyNumber">
+                </div>
+            </fieldset>
+            <button id="submit">Submit</button>
+        </form>
+        <div id="valid" style="display:none;">Valid</div>
+    </div>
+    <script src="formValidation.js"></script>
+    <script>
+        window.onload = function() {
+            validate();
+        }
+    </script>
+</body>
+
+</html>
