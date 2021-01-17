@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    Github username:
+    <input type="text" id="username" value="k1l1L">
+    <button onclick="loadRepos()"> Load repository</button>
+    <ul id="repos">
+        <li>
+            <a href="{repo.html_url}">
+                {repo.full_name}
+            </a>
+        </li>
+    </ul>
+    <script>
+        function loadRepos() {
+            $('#repos').empty()
+            let userName = $('#username').val();
+
+            let url = 'https://api.github.com/users/' + userName + '/repos';
+            console.log(url);
+            $.ajax({
+                url: url,
+
+                success: success,
+                error: error
+            });
+
+            function success(res) {
+                for (repos of res) {
+                    console.log(repos)
+
+                    let aLink = $('<a>').text(repos.full_name)
+                    aLink.attr('href', repos.html_url)
+
+                    $('#repos').append($('<li>').append(aLink)) //zarejda repos v li itemite
+                }
+            }
+
+            function error(err) {
+                console.log(err)
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>

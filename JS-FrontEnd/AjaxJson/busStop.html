@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Stop</title>
+    <style>
+        #stopName {
+            font-size: 1.5em;
+            font-weight: 400;
+            padding: 0.25em;
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+    <div id="stopInfo" style="width:20em">
+        <div>
+            <label for="stopId">Stop ID: </label>
+            <input id="stopId" type="text">
+            <input id="submit" type="button" value="Check" onclick="getInfo()"></div>
+        <div id="result">
+            <div id="stopName"></div>
+            <ul id="buses"></ul>
+        </div>
+    </div>
+    <script>
+        function getInfo() {
+            let currentId = $('#stopId').val();
+            let url = `https://judgetests.firebaseio.com/businfo/${currentId}.json`;
+            // 1308
+            console.log(currentId);
+            $('#submit')
+            $.ajax({
+                url,
+                success,
+                error
+            });
+
+            function success(res) {
+                $('#stopName').empty();
+                $('#buses').empty();
+                $('#stopName').append(res.name);
+
+                //obrushta obect v masiv
+                let extractObject = Object.entries(res.buses);
+                for (data of extractObject) {
+                    $('#buses').append($('<li>').text(`Bus ${data[0]} arrives in ${data[1]} mins`))
+                }
+
+            }
+
+            function error(err) {
+                console.log(err);
+            }
+
+
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>
