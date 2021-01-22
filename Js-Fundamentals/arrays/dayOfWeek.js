@@ -1,5 +1,5 @@
 function solve(params) {
-    let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satarday', 'Sunday']
+    let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     if (params >= 1 && params <= 7) {
         console.log(days[params - 1]);
 
