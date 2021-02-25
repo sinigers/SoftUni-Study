@@ -4,9 +4,10 @@ function solve() {
   const [genarateBtn, buyBtn] = [...document.querySelectorAll("button")];
 
   const furniture = [];
+  
 
   genarateBtn.addEventListener("click", () => {
-    const furnitureArray = JSON.parse(input.value.trim());
+    const furnitureArray = JSON.parse(input.value.trim()); //parsva JSON formatiran text, zarededn v input text field
     table.innerHTML = "";
     furnitureArray.forEach(f => {
       const item = createRow(f);
@@ -16,7 +17,10 @@ function solve() {
   });
 
   buyBtn.addEventListener("click", () => {
-    furniture.forEach((f) => console.log(f.getValues().name, f.isChecked()));
+    furniture.forEach(f => console.log(f.getValues().name, f.isChecked()));
+   
+   console.log(element);
+    
   });
 
   function createRow(data) {
@@ -49,6 +53,7 @@ function solve() {
 
   function getValues() {
     return data;
+    
   }
 
   //create element type string (ul, div ....) ,
